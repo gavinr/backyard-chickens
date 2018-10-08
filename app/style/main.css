@@ -1,286 +1,327 @@
 :root {
-    --orange: #EB6852;
-    --black: #435363;
-    --blue: #EFF7FE;
-    --dblue: #B3D1ED;
+  --orange: #eb6852;
+  --black: #435363;
+  --blue: #eff7fe;
+  --dblue: #b3d1ed;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--blue);
-
+  font-family: "Roboto", sans-serif;
+  background-color: var(--blue);
 }
 
 .top {
-    display: grid;
-    background-color: white;
-    margin: -5px;
-    border-bottom: 2px solid var(--black);
-    grid-template-areas:
-        "logo logo menu menu"
+  display: grid;
+  background-color: white;
+  margin: -5px;
+  border-bottom: 2px solid var(--black);
+  grid-template-areas: "logo logo menu menu";
 }
 
 .logo {
-    grid-area: logo;
-    align-self: center;
-    text-transform: uppercase;
+  grid-area: logo;
+  align-self: center;
+  text-transform: uppercase;
 }
 
 .logo h1 {
-    margin-left: 5px;
-    display: inline !important;
-    padding: 0.5px;
-    font-size: 30px;
+  margin-left: 5px;
+  display: inline !important;
+  padding: 0.5px;
+  font-size: 30px;
 }
 
-
-
 #orange {
-    color: var(--orange);
+  color: var(--orange);
 }
 
 #black {
-    color: var(--black);
+  color: var(--black);
 }
-
 
 .menu {
-    grid-area: menu;
+  grid-area: menu;
 }
 
-
 .menu ul {
-
-    display: grid;
-    padding: 0;
-    list-style: none;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    overflow: hidden;
-    justify-items: center;
+  display: grid;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  overflow: hidden;
+  justify-items: center;
 }
 
 .menu a {
-    text-decoration: none;
-    color: var(--black);
-    text-transform: uppercase;
-    font-size: 25px;
+  text-decoration: none;
+  color: var(--black);
+  text-transform: uppercase;
+  font-size: 25px;
 }
 
-
+.middle > * {
+  grid-column: 2/-2;
+}
 
 .middle {
-    display: grid;
-    max-width: 1000px;
-    margin: 200px auto;
-    justify-items: center !important;
-    text-align: center;
-    grid-template-columns: repeat(auto-fit, minmax (auto 1fr));
-    background-color: var(--blue);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  max-width: 1200px;
+  margin: 10px auto;
+  justify-items: center !important;
+  text-align: center;
+  background-color: var(--blue);
+  margin-bottom: 25px;
 }
 
 .instructions {
-    font-size: 20px;
-    overflow: nowrap;
-    text-align: center;
-}
-
-.middle>* {
-    grid-column: 2/-2;
+  font-size: 20px;
+  overflow: nowrap;
+  text-align: center;
+  margin: 10px;
 }
 
 .address {
-    display: inline-block;
-    align-items: center;
-
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 65%;
 }
 
 .form {
-    float: left;
+  float: left;
+  vertical-align: middle;
+  width: 100%;
+}
 
+#map-container {
+  width: 100%;
+  height: 600px;
+}
+
+#mapid {
+  width: 80%;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 button[type="submit"] {
-    width: 60px;
-    background-repeat: no-repeat;
-    background-color: var(--blue);
-    background-position: 0px 0px;
-    /* equivalent to 'top left' */
-    border: none;
-    /* assuming we don't want any borders */
-    cursor: pointer;
-    /* make the cursor like hovering over an <a> element */
-    height: 60px;
-    /* make this the size of your image */
-    font-size: 40px;
-    align-self: center;
-
-
+  width: 60px;
+  background-repeat: no-repeat;
+  background-color: var(--blue);
+  background-position: 0px 0px;
+  /* equivalent to 'top left' */
+  border: none;
+  /* assuming we don't want any borders */
+  cursor: pointer;
+  /* make the cursor like hovering over an <a> element */
+  height: 60px;
+  /* make this the size of your image */
+  font-size: 40px;
+  vertical-align: middle;
+  margin-top: auto;
+  margin-bottom: auto;
+  display: inline-block;
+  align-items: middle;
+  margin: 10px;
 }
 
+.form {
+  float: left;
+  max-width: 680px;
+}
 
-
-input[type="text"],
+input[id="address"],
 textarea {
-    background-color: VAR(--blue);
-    font-size: 30px;
-    width: 412px;
+  background-color: VAR(--blue);
+  font-size: 30px;
+  background-color: VAR(--blue);
+  font-size: 30px;
+  width: 690px;
+  margin-top: 20px;
+}
+
+input[class="coopFormInput"],
+textarea {
+  padding-left: 0;
+  padding-right: 0;
+  width: 35px;
 }
 
 .search {
-    width: 100%;
-    max-width: 1000px;
-    border-radius: 150px;
-    border: 2px solid var(--dblue);
-    text-align: center;
+  width: ;
+  border-radius: 150px;
+  border: 2px solid var(--dblue);
+  text-align: center;
 }
 
-
 .end {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-    bottom: 0;
-    width: 100%;
-    height: 100px;
-    margin-left: -60px;
-    margin-top: 450px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  margin-top: 180px;
+  margin-left: -60px;
 }
 
 .chicken2 {
-    transform: scaleX(-1);
-}
-
-@media (max-width : 1920px) {
-    input {
-        padding-right: 150px;
-        padding-left: 150px;
-    }
-
-}
-
-@media (max-width: 1100px) {
-    .top>.logo {
-        justify-self: center;
-    }
-
-    .top {
-        grid-template-areas:
-            "logo"
-            "menu"
-    }
-
-    input {
-        padding-right: 150px;
-        padding-left: 150px;
-    }
-
-
+  transform: scaleX(-1);
 }
 
 @media (max-width: 940px) {
-    input {
-        padding-right: 6px;
-        padding-left: 6px;
-    }
+  input[id="address"],
+  textarea {
+    background-color: VAR(--blue);
+    font-size: 30px;
+    width: 400px;
+  }
 }
 
+@media (max-width: 800px) {
+  .top {
+    justify-items: center;
+  }
 
-@media (max-width: 768px) {
-    .top {
-        justify-items: center;
-    }
+  .end > img {
+    background-color: var(--blue);
+    width: 100%;
+    height: 100%;
+  }
 
-    .end>img {
-        background-color: var(--blue);
-        width: 100%;
-        height: 100%;
-    }
+  input[id="address"],
+  textarea {
+    background-color: VAR(--blue);
+    font-size: 30px;
+  }
 }
 
 @media (max-width: 750px) {
-    .end>img {
-        height: -100vh;
-    }
+  .end > img {
+    height: -100vh;
+  }
 
+  input[id="address"],
+  textarea {
+    background-color: VAR(--blue);
+    font-size: 30px;
+  }
 }
 
-@media (max-width: 528px) {
+@media (max-width: 510px) {
+  .top {
+    grid-template-areas:
+      "logo"
+      "menu";
+  }
 
+  .menu {
+    justify-self: end;
+    margin-right: 5px;
+  }
 
-    .top {
-        grid-template-areas:
-            "logo"
-            "menu"
+  .menu ul {
+    margin-right: 28vw;
+  }
 
-    }
+  .middle {
+    margin-top: 60px;
+  }
 
-    .menu {
-        justify-self: end;
-        margin-right: 5px;
-    }
+  .end > img {
+    margin-left: 20px;
+  }
 
-
-
-    .menu ul {
-        margin-right: 28vw;
-    }
-
-    .middle {
-        margin-top: 60px;
-    }
-
-    .end>img {
-        margin-left: 20px;
-    }
-
+  input[id="address"],
+  textarea {
+    background-color: VAR(--blue);
+    font-size: 30px;
+  }
 }
 
+@media (max-width: 320px), screen and (max-height: 700px) {
+  .instructions {
+    margin-top: -50px;
+    font-size: 15px;
+    overflow: hidden;
+  }
 
-@media (max-width : 320px),
-screen and (max-height: 700px) {
+  input[type="text"],
+  textarea {
+    background-color: VAR(--blue);
+    font-size: 25px;
+    width: 290px;
+  }
 
+  head .instructions {
+    font-size: 15px;
+    overflow: hidden;
+  }
 
-    .instructions {
-        font-size: 15px;
-        overflow: hidden;
-    }
+  input[type="text"],
+  textarea {
+    background-color: VAR(--blue);
+    font-size: 25px;
+  }
 
-    input[type="text"],
-    textarea {
-        background-color: VAR(--blue);
-        font-size: 25px;
-        width: 290px;
-    }
+  input[class="coopFormInput"],
+  textarea {
+    padding-left: 0;
+    padding-right: 0;
+    width: 35px;
+  }
 
+  .menu a {
+    margin-left: 18vw;
+  }
 
+  .menu > * {
+    margin-left: 8vw;
+  }
 
+  ul {
+    margin-right: 10vw;
+  }
 
+  input[id="address"],
+  textarea {
+    background-color: VAR(--blue);
+    font-size: 30px;
+    width: 200px;
+  }
 
-    .menu a {
-        margin-left: 18vw;
-    }
+  input[class="coopFormInput"],
+  textarea {
+    padding-left: 0;
+    padding-right: 0;
+    width: 35px;
+  }
 
-    .menu>* {
-        margin-left: 8vw;
-    }
+  .menu a {
+    margin-left: 18vw;
+  }
 
-    ul {
-        margin-right: 10vw;
-    }
+  .menu > * {
+    margin-left: 8vw;
+  }
 
+  ul {
+    margin-right: 10vw;
+  }
 
+  .end {
+    margin-top: 5px;
+  }
 
-    .end {
-        margin-top: 5px;
-    }
+  .end > img {
+    margin-top: 18px;
+    height: 60px;
+  }
 
-    .end>img {
-        margin-top: 18px;
-    }
-
-    body {
-        padding-top: -500px;
-        top: 0;
-    }
-
-
+  body {
+    padding-top: -500px;
+    top: 0;
+  }
 }
