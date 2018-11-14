@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-  
+
 
   //Set up map:
   var mymap = L.map('mapid').setView([38.66085, -90.362549], 11);
@@ -88,17 +88,17 @@ $(document).ready(function () {
    * @param {string} input 
    */
   function showRegsAddress(input) {
-    arcgisRest.geocode(input).then(function(data) {
+    arcgisRest.geocode(input).then(function (data) {
       console.log('data', data);
       showRegs(L.latLng(data.candidates[0].location.y, data.candidates[0].location.x));
     });
   }
 
   // Handler for map click events:
-  mymap.on('click', function(e) {
+  mymap.on('click', function (e) {
     showRegs(e.latlng);
   });
-  
+
   //Set up button click handler for the search form:
   $("button").click(function () {
     var input = document.getElementById('address').value;
@@ -106,27 +106,27 @@ $(document).ready(function () {
   });
 
   // SETUP AUTOCOMPLETE
-  $( "#address" ).autocomplete({
-    source: function(request, response) {
+  $("#address").autocomplete({
+    source: function (request, response) {
       console.log('autocomplete request:', request);
-      
+
       arcgisRest.suggest(request.term, {
         params: {
           location: '-90.18,38.62'
         }
-      }).then(function(data) {
+      }).then(function (data) {
         console.log('data', data);
-        response(data.suggestions.map(function(suggestionObject) {
+        response(data.suggestions.map(function (suggestionObject) {
           return {
             label: suggestionObject.text,
             value: suggestionObject.text
           };
         }));
       }.bind(this));
-  
+
     },
     minLength: 2,
-    select: function( event, ui ) {
+    select: function (event, ui) {
       // When the user selects an item from the dropdown, search on that address:
       showRegsAddress(ui.item.value);
     }
