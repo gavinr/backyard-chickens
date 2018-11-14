@@ -1,16 +1,5 @@
 $(document).ready(function () {
 
-  var searchControl = L.esri.Geocoding.geosearch();
-  console.log('searchControl', searchControl);
-  // listen for the results event and add every result to the map
-  searchControl.on("results", function(data) {
-    console.log('data', data);
-    // results.clearLayers();
-    // for (var i = data.results.length - 1; i >= 0; i--) {
-    //     results.addLayer(L.marker(data.results[i].latlng));
-    // }
-  });
-
   //Set up button click handler for the search form:
   $("button").click(function () {
     var input = document.getElementById('address').value;
@@ -38,11 +27,11 @@ $(document).ready(function () {
     console.log('parseResult', city, county, state);
     //Parse result:
     var place = city;
-    if (city == undefined) place = "unincorporated " + county;
+    if (city == undefined || city == '') place = "Unincorporated " + county;
     var popup_content = place + ":<br />";
     // Look up the regulations string for resulting location using JS Objects (hashtables):
     if (state == "Missouri") {
-      if (city == undefined) {
+      if (city == undefined || city == '') {
         if (missouri_counties[county] != undefined) {
           popup_content += missouri_counties[county];
         } else {
@@ -62,7 +51,7 @@ $(document).ready(function () {
       }
     } else {
       // Check Illinois too:
-      if (city == undefined) {
+      if (city == undefined || city == '') {
         if (illinois_counties[county] != undefined) {
           popup_content += illinois_counties[county];
         } else {
@@ -93,9 +82,10 @@ $(document).ready(function () {
   //Show chicken regulations at coordinates:
   function showRegs(coords) {
     arcgisRest.reverseGeocode([coords.lng, coords.lat], {
-      'featureTypes': 'PointAddress'
+      'params': {
+        'featureTypes': 'Locality'
+      }
     }).then(function (response) {
-      console.log('response', response);
       parseResult(response.address.City, response.address.Subregion, response.address.Region, popup, mymap, coords);
     }.bind(this));
   }
@@ -105,4 +95,3 @@ $(document).ready(function () {
     showRegs(e.latlng)
   });
 });
-
